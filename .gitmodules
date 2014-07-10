@@ -1,0 +1,3 @@
+[submodule "kernel"]
+	path = kernel
+	url = https://github.com/PyYoshi/android_kernel_huawei_hw01e.git
