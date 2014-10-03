@@ -23,6 +23,7 @@ fi
 #
 rm -rf new-ramdisk.cpio.gz
 rm -rf new_boot.img
+rm -rf kernel/arch/arm/boot/zImage
 
 #
 if [ ! -e "kernel" ]; then
