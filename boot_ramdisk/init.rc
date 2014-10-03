@@ -739,8 +739,8 @@ service servicemanager /system/bin/servicemanager
     onrestart restart surfaceflinger
     onrestart restart drm
 #FSI Add Start(DTS2012033104971)
-    onrestart restart dtvserver
-    onrestart restart dtvsdserver
+    #onrestart restart dtvserver
+    #onrestart restart dtvsdserver
 #FSI Add End(DTS2012033104971)
 
 service vold /system/bin/vold
@@ -912,11 +912,11 @@ on property:ro.service.systemstattool=true
 #/* DTS2012060604864 y00207749 20120607 systemstattool function update end> */
 
 #FSI Add Start(DTS2012033104971)
-service dtvserver /system/bin/dtvserver
-    class main
+#service dtvserver /system/bin/dtvserver
+#    class main
 
-service dtvsdserver /system/bin/dtvsdserver
-    class main
+#service dtvsdserver /system/bin/dtvsdserver
+#    class main
 #FSI Add End(DTS2012033104971)
 #/* h00203195 JIRA U9501L-156 security scan development 2012/2/20 add begin */
 service mfescand /system/bin/mfescand

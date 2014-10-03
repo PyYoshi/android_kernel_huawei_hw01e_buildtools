@@ -128,9 +128,9 @@ on boot
 
 # import cne init file
     #For FeliCa
-    insmod /system/lib/modules/felica_gpio.ko
-    insmod /system/lib/modules/felica_uart.ko
-    insmod /system/lib/modules/felica_rws.ko
+    #insmod /system/lib/modules/felica_gpio.ko
+    #insmod /system/lib/modules/felica_uart.ko
+    #insmod /system/lib/modules/felica_rws.ko
 
     #For USBD
     insmod /system/lib/modules/dtfum.ko
@@ -526,11 +526,11 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
     disabled
     oneshot
 
-service felicamdl /system/bin/felicadtmdl
-    class late_start
-    user felicaDT
-    group felicaDT
-    oneshot
+#service felicamdl /system/bin/felicadtmdl
+#    class late_start
+#    user felicaDT
+#    group felicaDT
+#    oneshot
 
 #action in debug mode, in release image,these actions will be never execute
 #DTS2012070400227 w00173980 2012/07/26 begin add log config prop

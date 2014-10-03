@@ -167,9 +167,9 @@ on property:sys.usb.config=mass_storage
     write /sys/class/android_usb/android0/idVendor 12D1
     write /sys/class/android_usb/android0/idProduct 1037
 # ADD For FeliCa start
-    write /sys/class/android_usb/android0/bDeviceClass 0
-    write /sys/class/android_usb/android0/bDeviceSubClass 0
-    write /sys/class/android_usb/android0/bDeviceProtocol 0
+    # write /sys/class/android_usb/android0/bDeviceClass 0
+    # write /sys/class/android_usb/android0/bDeviceSubClass 0
+    # write /sys/class/android_usb/android0/bDeviceProtocol 0
 # ADD For FeliCa end
     write /sys/class/android_usb/android0/iSerial $ro.serialno
     # /* <DTS2012030800779 z00202508 2012-3-20 start> */
@@ -203,9 +203,9 @@ on property:sys.usb.config=modem
     write /sys/class/android_usb/android0/idVendor 12D1
     write /sys/class/android_usb/android0/idProduct 1055
 # ADD For FeliCa start
-    write /sys/class/android_usb/android0/bDeviceClass 0
-    write /sys/class/android_usb/android0/bDeviceSubClass 0
-    write /sys/class/android_usb/android0/bDeviceProtocol 0
+    # write /sys/class/android_usb/android0/bDeviceClass 0
+    # write /sys/class/android_usb/android0/bDeviceSubClass 0
+    # write /sys/class/android_usb/android0/bDeviceProtocol 0
 # ADD For FeliCa end
     write /sys/class/android_usb/android0/iSerial $ro.serialno
     write /sys/class/android_usb/android0/f_serial/transports smd
@@ -234,8 +234,8 @@ on property:sys.usb.config=charge_only
 # /* <DTS2012022904242 z00202508 2012-3-2 delete begin> */
 #    write /sys/class/android_usb/android0/bDeviceClass 0
 # ADD For FeliCa start
-    write /sys/class/android_usb/android0/bDeviceSubClass 0
-    write /sys/class/android_usb/android0/bDeviceProtocol 0
+    # write /sys/class/android_usb/android0/bDeviceSubClass 0
+    # write /sys/class/android_usb/android0/bDeviceProtocol 0
 # ADD For FeliCa end
 #    write /sys/class/android_usb/android0/enable 1
 # /* <DTS2012022904242 z00202508 2012-3-2 delete end> */
@@ -266,14 +266,14 @@ on property:sys.usb.config=hisuite,mtp,mass_storage,adb
     # /* <DTS2012030800779 z00202508 2012-3-20 end> */
     
 # ADD For FeliCa start
-on property:sys.usb.config=dtf
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 12D1
-    write /sys/class/android_usb/android0/idProduct 1060
-    write /sys/class/android_usb/android0/bDeviceClass 255
-    write /sys/class/android_usb/android0/bDeviceSubClass 255
-    write /sys/class/android_usb/android0/bDeviceProtocol 255
-    write /sys/class/android_usb/android0/functions dtf
-    write /sys/class/android_usb/android0/enable 1
-    setprop sys.usb.state $sys.usb.config
+#on property:sys.usb.config=dtf
+#    write /sys/class/android_usb/android0/enable 0
+#    write /sys/class/android_usb/android0/idVendor 12D1
+#    write /sys/class/android_usb/android0/idProduct 1060
+#    write /sys/class/android_usb/android0/bDeviceClass 255
+#    write /sys/class/android_usb/android0/bDeviceSubClass 255
+#    write /sys/class/android_usb/android0/bDeviceProtocol 255
+#    write /sys/class/android_usb/android0/functions dtf
+#    write /sys/class/android_usb/android0/enable 1
+#    setprop sys.usb.state $sys.usb.config
 # ADD For FeliCa end
