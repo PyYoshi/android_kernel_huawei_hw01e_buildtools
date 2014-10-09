@@ -10,7 +10,9 @@ fi
 
 #
 if [ "$platform" == 'linux' ]; then
-    export CCOMPILER=$PWD/bin_linuxx86/arm-eabi-4.4.3/bin/arm-eabi-
+    #export CCOMPILER=$PWD/bin_linuxx86/arm-eabi-4.4.3/bin/arm-eabi-
+    #export CCOMPILER=$PWD/bin_linuxx86/gcc-linaro-arm-linux-gnueabihf-4.9/bin/arm-linux-gnueabihf-
+    export CCOMPILER=$PWD/bin_linuxx86/gcc-linaro-arm-linux-gnueabihf-4.7/bin/arm-linux-gnueabihf-
     export MKBOOTIMG=$PWD/bin_linuxx86/mkbootimg
 elif [ "$platform" == 'darwin' ]; then
     export CCOMPILER=$PWD/bin_darwinx86/arm-eabi-4.4.3/bin/arm-eabi-
@@ -32,7 +34,7 @@ if [ ! -e "kernel" ]; then
 fi
 cd kernel
 cp -f arch/arm/configs/hw01e_defconfig .config
-make ARCH=arm CROSS_COMPILE=$CCOMPILER -j4
+make ARCH=arm CROSS_COMPILE=$CCOMPILER -j8
 cd ..
 if [ -e "./kernel/arch/arm/boot/zImage" ]; then
     echo "カーネルのビルドが完了しました"
