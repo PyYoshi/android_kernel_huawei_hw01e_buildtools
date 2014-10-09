@@ -35,14 +35,18 @@ cp -f arch/arm/configs/hw01e_defconfig .config
 make ARCH=arm CROSS_COMPILE=$CCOMPILER -j4
 cd ..
 if [ -e "./kernel/arch/arm/boot/zImage" ]; then
+    echo "カーネルのビルドが完了しました"
+    echo "boot.imgを作成します"
     cd boot_ramdisk
     find . | cpio -o -H newc | gzip > ../new-ramdisk.cpio.gz
     cd ..
     $MKBOOTIMG --kernel ./kernel/arch/arm/boot/zImage  --ramdisk ./new-ramdisk.cpio.gz --cmdline "androidboot.hardware=huawei user_debug=31 kgsl.mmutype=gpummu" --base 0x80200000 --pagesize 2048 --ramdisk_offset 0x1400000 -o new_boot.img
     if [ "$platform" == 'linux' ]; then
         find kernel -name '*.ko' | xargs -i cp {} modules/
+        echo "カーネルモジュールをmodulesディレクトリへコピーします"
     elif [ "$platform" == 'darwin' ]; then
         find kernel -name '*.ko' | xargs -J % cp % modules/
+        echo "カーネルモジュールをmodulesディレクトリへコピーします"
     else
         echo "Not supported platform!"
         exit 1
@@ -52,5 +56,6 @@ else
     echo "kernel/arch/arm/boot/zImageが存在するか確認してちょうだい"
     exit 1
 fi
+echo "すべてのジョブが完了しました"
 
 exit 0
