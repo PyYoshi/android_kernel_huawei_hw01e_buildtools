@@ -40,7 +40,7 @@ if [ -e "./kernel/arch/arm/boot/zImage" ]; then
     cd boot_ramdisk
     find . | cpio -o -H newc | gzip > ../new-ramdisk.cpio.gz
     cd ..
-    $MKBOOTIMG --kernel ./kernel/arch/arm/boot/zImage  --ramdisk ./new-ramdisk.cpio.gz --cmdline "androidboot.hardware=huawei user_debug=31 kgsl.mmutype=gpummu" --base 0x80200000 --pagesize 2048 --ramdisk_offset 0x1400000 -o new_boot.img
+    $MKBOOTIMG --kernel ./kernel/arch/arm/boot/zImage  --ramdisk ./new-ramdisk.cpio.gz --cmdline "console=ttyHSL0,115200,n8 androidboot.hardware=huawei user_debug=31 kgsl.mmutype=gpummu" --base 0x80200000 --pagesize 2048 --ramdisk_offset 0x1400000 -o new_boot.img
     if [ "$platform" == 'linux' ]; then
         find kernel -name '*.ko' | xargs -i cp {} modules/
         echo "カーネルモジュールをmodulesディレクトリへコピーします"
